@@ -1,6 +1,6 @@
 #! /bin/bash
 
-TARGETDIR=~/projects/static-website/$WEB_BASEPATH
+TARGETDIR=public
 
 mkdir -p $TARGETDIR
 rm -rf $TARGETDIR/hotelui

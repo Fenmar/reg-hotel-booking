@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+  <head>
+    <title>Hotelbuchung</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta HTTP-EQUIV="expires" CONTENT="0" />
+    <link
+      rel="stylesheet"
+      href="../css/bootstrap-bootswatch-theme-lumen.min.css"
+    />
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="../css/bootstrap-datepicker3.min.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-datepicker.min.js"></script>
+    <script src="../locales/bootstrap-datepicker.de.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/timer.js"></script>
+    <style type="text/css">
+      body {
+        padding-bottom: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand"
+              >Eurofurence Hotelbuchung Mailgenerator</span
+            >
+          </div>
+          <span id="languagecode" class="de">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language_dropdown_toggle">
+                  <img alt="Sprache Deutsch Flagge" src="../images/lang/flag_de.gif"/>
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="../en/index.html" id="language_en"
+                      ><img alt="Sprache Englisch Flagge" src="../images/lang/flag_en.gif" /><span
+                        style="padding-left:10px"
+                        >Englisch</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a href="../de/index.html" id="language_de"
+                      ><img alt="Sprache Deutsch Flagge" src="../images/lang/flag_de.gif" /><span
+                        style="padding-left:10px"
+                        >Deutsch</span
+                      ></a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </span>
+        </div>
+      </nav>
+
+      <div class="row" style="margin-top: 4px; margin-bottom: 4px">
+        <div class="col-xs-12" id="mainpage">
+          <p id="hide_with_js">
+            Ohne Javascript geht es leider nicht, tut uns leid!
+          </p>
+        </div>
+      </div>
+      <div style="visibility: hidden;" id="unhide_with_js">
+        <div class="well well-sm">
+          <h4 id="text_headline">Hotelbuchung für Eurofurence</h4>
+          <p>
+            Wie in the letzten Jahren erfolgt die Buchung eines Zimmers im Hotel via E-Mail. Da das Hotel eine große Zahl von E-Mails bearbeiten muss, müssen alle E-Mails das gleiche Format haben.
+          </p>
+          <p>
+            Diese Webseite hilft dir, die Email im korrekten Format zu erstellen. Alternativ findest du alle nötigen Informationen auch auf dem
+            <a href="https://twitter.com/eurofurence"
+              >Eurofurence Twitter account</a
+            >.
+          </p>
+          <h4>Der geheime Code</h4>
+          <p>
+            Deine E-Mail muss einen geheimen Code beinhalten, um akzeptiert zu werden. Dieser Code wird gleichzeitig für alle freigeschaltet, um allen die gleiche Chance zu geben, ein Zimmer zu bekommen.
+            Wenn die Hotelbuchung beginnt, werden wir den geheimen Code auch auf Twitter veröffentlichen.
+          </p>
+          <p>
+            Du kannst schon im Vorfeld alle anderen Informationen, die für die E-Mail benötigt werden, eingeben. So musst du nachdem der Code freigeschaltet wurde, nur den Text in dein E-Mail Programm kopieren und abschicken.
+            <b>Verschicke die E-Mail nicht ohne den geheimen Code!</b>
+          </p>
+          <p id="hide-after-reveal" style="text-align: center; margin-top: 2em;">Der geheime Code wird freigeschaltet<br /><span style="text-align: center; font-size: 30px; margin-top: 20px;" id="secret-timer"></span><br /><span style="text-align: center; font-size: 18px; margin-top: 8px;" id="secret-timer-berlin-tz"></span></p>
+          <p id="timeError" style="text-align: center; margin-top: 2em; color: red; font-size: 1.5em; display: none;">Zeit-Server nicht erreichbar!</p>
+        </div>
+        <div class="row" style="margin-top: 5%">
+          <div class="col-xs-4"></div>
+          <div class="col-xs-4" style="text-align: center">
+            <a
+              href="reservation-form.html"
+              class="btn btn-primary active"
+              role="button"
+              id="submitbutton"
+              >Los geht's!</a
+            >
+          </div>
+          <div class="col-xs-4"></div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand">©2022 Eurofurence e.V.</span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

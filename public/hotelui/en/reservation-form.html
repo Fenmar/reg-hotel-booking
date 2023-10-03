@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <title>Hotel Booking</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta HTTP-EQUIV="expires" CONTENT="0" />
+    <link
+      rel="stylesheet"
+      href="../css/bootstrap-bootswatch-theme-lumen.min.css"
+    />
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="../css/bootstrap-datepicker3.min.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-datepicker.min.js"></script>
+    <script src="../locales/bootstrap-datepicker.en-GB.min.js"></script>
+    <script src="../js/app.js"></script>
+    <style type="text/css">
+      body {
+        padding-bottom: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand"
+              >Eurofurence Hotel Booking Mail Generator</span
+            >
+          </div>
+          <span id="languagecode" class="en">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  href="#"
+                  id="language_dropdown_toggle"
+                >
+                  <img alt="Language English Flag" src="../images/lang/flag_en.gif"/>
+                  <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="../en/reservation-form.html" id="language_en"
+                      ><img alt="Language English Flag" src="../images/lang/flag_en.gif" /><span
+                        style="padding-left:10px"
+                        >English</span
+                      ></a
+                    >
+                  </li>
+                  <li>
+                    <a href="../de/reservation-form.html" id="language_de"
+                      ><img alt="Language German Flag" src="../images/lang/flag_de.gif" /><span
+                        style="padding-left:10px"
+                        >German</span
+                      ></a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </span>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <form id="form" class="form-horizontal">
+          <div class="ef-formgroup form-group container-fluid" id="formpage">
+            <input
+              type="hidden"
+              id="size_initial"
+              name="roomsizeinitial"
+              value="2"
+            />
+            <h3 id="roomsize_label">Room Size</h3>
+            <div>
+              <label
+                id="size_single_label"
+                class="btn btn-primary col-xs-12 col-sm-4"
+              >
+                <input
+                  type="radio"
+                  id="size_single"
+                  name="roomsize"
+                  value="1"
+                />
+                &nbsp;single room
+              </label>
+              <label
+                id="size_double_label"
+                class="btn btn-primary col-xs-12 col-sm-4"
+              >
+                <input
+                  type="radio"
+                  id="size_double"
+                  name="roomsize"
+                  value="2"
+                  checked
+                />
+                &nbsp; double room
+              </label>
+              <label
+                id="size_triple_label"
+                class="btn btn-primary col-xs-12 col-sm-4"
+              >
+                <input
+                  type="radio"
+                  id="size_triple"
+                  name="roomsize"
+                  value="3"
+                />
+                &nbsp; triple room
+              </label>
+            </div>
+          </div>
+
+          <div
+            id="ef-firstpersongroup"
+            class="ef-formgroup container-fluid collapse"
+          >
+            <div>
+              <h3>1st Person</h3>
+
+              <label for="name1" class="col-xs-12 col-sm-12"
+                >Name
+                <input
+                  title="first and last name 1st person"
+                  class="form-control firstperson"
+                  id="name1"
+                  name="name1"
+                  type="text"
+                  placeholder="first and last name 1st person"
+                  value=""
+                  maxlength="255"
+                  required
+                />
+              </label>
+
+              <label for="street1" class="col-xs-12 col-sm-4"
+                >Street Address
+                <input
+                  title="street 1st person"
+                  class="form-control firstperson"
+                  id="street1"
+                  name="street1"
+                  type="text"
+                  placeholder="street address 1st person"
+                  value=""
+                  maxlength="255"
+                  required
+                />
+              </label>
+
+              <label for="city1" class="col-xs-12 col-sm-4"
+                >City and ZIP
+                <input
+                  title="city and zip 1st person"
+                  class="form-control firstperson"
+                  id="city1"
+                  name="city1"
+                  type="text"
+                  placeholder="city and zip 1st person"
+                  value=""
+                  maxlength="255"
+                  required
+                />
+              </label>
+
+              <label for="country1" class="col-xs-12 col-sm-4"
+                >Country
+                <input
+                  title="country 1st person"
+                  class="form-control firstperson"
+                  id="country1"
+                  name="country1"
+                  type="text"
+                  placeholder="country 1st person"
+                  value=""
+                  maxlength="255"
+                  required
+                />
+              </label>
+
+              <label for="email1" class="col-xs-12 col-sm-6"
+                >eMail Address
+                <input
+                  title="person1@mail"
+                  class="form-control firstperson"
+                  id="email1"
+                  name="email1"
+                  type="email"
+                  placeholder="person1@mail"
+                  value=""
+                  maxlength="255"
+                  required
+                />
+              </label>
+
+              <label for="phone1" class="col-xs-12 col-sm-6"
+                >Phone Number
+                <input
+                  title="1st phone number"
+                  class="form-control firstperson"
+                  id="phone1"
+                  name="phone1"
+                  type="text"
+                  placeholder="1st phone number"
+                  value=""
+                  maxlength="255"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+
+          <div
+            id="ef-secondpersongroup"
+            class="ef-formgroup container-fluid collapse"
+          >
+            <div>
+              <h3>2nd Person</h3>
+
+              <label for="name2" class="col-xs-12 col-sm-12"
+                >Name
+                <input
+                  title="first and last name 2nd person"
+                  class="form-control secondperson"
+                  id="name2"
+                  name="name2"
+                  type="text"
+                  placeholder="first and last name 2nd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="street2" class="col-xs-12 col-sm-4"
+                >Street Address
+                <input
+                  title="street 2nd person"
+                  class="form-control secondperson"
+                  id="street2"
+                  name="street2"
+                  type="text"
+                  placeholder="street 2nd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="city2" class="col-xs-12 col-sm-4"
+                >City and ZIP
+                <input
+                  title="city and zip 2nd person"
+                  class="form-control secondperson"
+                  id="city2"
+                  name="city2"
+                  type="text"
+                  placeholder="city and zip 2nd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="country2" class="col-xs-12 col-sm-4"
+                >Country
+                <input
+                  title="country 2nd person"
+                  class="form-control secondperson"
+                  id="country2"
+                  name="country2"
+                  type="text"
+                  placeholder="country 2nd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="email2" class="col-xs-12 col-sm-6"
+                >eMail Address
+                <input
+                  title="person1@mail"
+                  class="form-control secondperson"
+                  id="email2"
+                  name="email2"
+                  type="email"
+                  placeholder="person2@mail"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="phone2" class="col-xs-12 col-sm-6"
+                >Phone Number
+                <input
+                  title="2nd phone number"
+                  class="form-control secondperson"
+                  id="phone2"
+                  name="phone2"
+                  type="text"
+                  placeholder="2nd phone number"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div
+            id="ef-thirdpersongroup"
+            class="ef-formgroup container-fluid collapse"
+          >
+            <div>
+              <h3>3. Person</h3>
+
+              <label for="name3" class="col-xs-12 col-sm-12"
+                >Name
+                <input
+                  title="first and last name 3rd person"
+                  class="form-control thirdperson"
+                  id="name3"
+                  name="name3"
+                  type="text"
+                  placeholder="first and last name 3rd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="street3" class="col-xs-12 col-sm-4"
+                >Street Address
+                <input
+                  title="street 3rd person"
+                  class="form-control thirdperson"
+                  id="street3"
+                  name="street3"
+                  type="text"
+                  placeholder="street 3rd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="city3" class="col-xs-12 col-sm-4"
+                >City and ZIP
+                <input
+                  title="city and zip 3rd person"
+                  class="form-control thirdperson"
+                  id="city3"
+                  name="city3"
+                  type="text"
+                  placeholder="city and zip 3rd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="country3" class="col-xs-12 col-sm-4"
+                >Country
+                <input
+                  title="country 3rd person"
+                  class="form-control thirdperson"
+                  id="country3"
+                  name="country3"
+                  type="text"
+                  placeholder="country 3rd person"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="email3" class="col-xs-12 col-sm-6"
+                >eMail Address
+                <input
+                  title="person1@mail"
+                  class="form-control thirdperson"
+                  id="email3"
+                  name="email3"
+                  type="email"
+                  placeholder="person3@mail"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+
+              <label for="phone3" class="col-xs-12 col-sm-6"
+                >Phone Number
+                <input
+                  title="3rd phone number"
+                  class="form-control thirdperson"
+                  id="phone3"
+                  name="phone3"
+                  type="text"
+                  placeholder="3rd phone number"
+                  value=""
+                  maxlength="255"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div class="formgroup ef-formgroup container-fluid">
+            <div>
+              <h3>Timespan</h3>
+              <label class="col-xs-12 col-sm-4" for="arrival"
+                >Arrival
+                <span class="has-error" id="arrival_error">
+                  <input
+                    title="arrival date"
+                    class="form-control"
+                    id="arrival"
+                    name="arrival"
+                    type="text"
+                    placeholder="arrival date"
+                    maxlength="10"
+                  />
+                </span>
+              </label>
+              <label class="col-xs-12 col-sm-4" for="departure"
+                >Departure
+                <span class="has-error" id="departure_error">
+                  <input
+                    title="departure date"
+                    class="form-control"
+                    id="departure"
+                    name="departure"
+                    type="text"
+                    placeholder="departure date"
+                    maxlength="10"
+                  />
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="ef-formgroup container-fluid">
+            <div>
+              <h3>Room Type</h3>
+              <input
+                type="hidden"
+                id="roomtype_max"
+                name="roomtype_max"
+                value="3"
+              />
+              <input
+                type="hidden"
+                id="roomtype_initial"
+                name="roomtype_initial"
+                value="1"
+              />
+
+              <div class="col-sm-12 roomtype template" id="roomtype_template">
+                <div class="btn-group">
+                  <label id="roomtypebutton" class="btn btn-primary">
+                    <input
+                      type="radio"
+                      id="roomtype"
+                      name="roomtype"
+                      value=""
+                    />
+                    &nbsp;
+                    <span>room type</span>
+                    <span id="roomtypeprice">(?€*)</span> </label
+                  ><a class="btn btn-default" target="_blank" href=""
+                    >details</a
+                  >
+                </div>
+                <input type="hidden" id="price_1" name="price_1" />
+                <input type="hidden" id="price_2" name="price_2" />
+                <input type="hidden" id="price_3" name="price_3" />
+              </div>
+              <p id="footnote_label">
+                * Prices are per night and room, breakfast, sales tax, city
+                tax included. If your chosen category is no longer available, the hotel
+                may reserve a higher category for you. If you do not want this,
+                please state so in the comments field below, or simply return
+                the room to the hotel when it has been reserved. <b>No
+                responsibility is accepted for the accuracy of any information
+                shown here! All reservations subject to availability!</b>
+              </p>
+            </div>
+          </div>
+
+          <div class="ef-formgroup form-group">
+            <h3><label for="comments">Comments</label></h3>
+            <div class="col-xs-12" id="comments_error">
+              <textarea
+                class="form-control"
+                rows="4"
+                id="comments"
+                name="comments"
+                placeholder="space for your comments"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="ef-formgroup form-group">
+            <h3>Confirmation</h3>
+            <div>
+              <div class="col-xs-12 has-error" id="understood_error">
+                <label
+                  ><input
+                    type="checkbox"
+                    id="understood"
+                    name="understood"
+                    value="yes"
+                  />&nbsp;I understand that clicking &#39;Generate eMail&#39;
+                  will NOT guarantee me a room. I will have to manually send the
+                  generated email, and wait for a reply from the hotel to see if I was able to secure a reservation!</label
+                >
+              </div>
+              <div class="col-xs-12">
+                <input
+                  type="hidden"
+                  id="cannot_submit"
+                  name="ignore"
+                  value="You cannot generate the email yet. Please make sure you fill in all required fields correctly and accept the disclaimer, then try again. Comments are limited to 2000 characters. Invalid fields are marked in red."
+                />
+                <input
+                  type="hidden"
+                  id="automated_test_config"
+                  name="automated_test_config"
+                  value=""
+                />
+                <button type="submit" id="submitbutton" class="btn btn-primary">
+                  Generate eMail
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand">©2022 Eurofurence e.V.</span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

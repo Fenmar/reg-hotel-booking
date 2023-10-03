@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+  <head>
+    <title>Hotelbuchung</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta HTTP-EQUIV="expires" CONTENT="0" />
+    <link
+      rel="stylesheet"
+      href="../css/bootstrap-bootswatch-theme-lumen.min.css"
+    />
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="../css/bootstrap-datepicker3.min.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-datepicker.min.js"></script>
+    <script src="../locales/bootstrap-datepicker.de.min.js"></script>
+    <script src="../js/mustache.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/mail.js"></script>
+    <style type="text/css">
+      body {
+        padding-bottom: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand"
+              >Eurofurence Hotelbuchung Mailgenerator</span
+            >
+          </div>
+          <span id="languagecode" class="de">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="language_dropdown_toggle">
+                    <img alt="Sprache Deutsch Flagge" src="../images/lang/flag_de.gif"/>
+                    <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="../en/reservation-show.html" id="language_en"
+                        ><img alt="Sprache Englisch Flagge" src="../images/lang/flag_en.gif" /><span
+                          style="padding-left:10px"
+                          >Englisch</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="../de/reservation-show.html" id="language_de"
+                        ><img alt="Sprache Deutsch Flagge" src="../images/lang/flag_de.gif" /><span
+                          style="padding-left:10px"
+                          >Deutsch</span
+                        ></a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </span>
+        </div>
+      </nav>
+
+      <div
+        class="row"
+        id="ready-text"
+        style="display: none; margin-bottom: 2em;"
+      >
+        <div class="col-xs-12"><p>Du kannst jetzt deine Buchungsmail abschicken. Du kannst dazu auf den folgenden Button klicken, um die E-Mail in deinem E-Mailprogramm zu öffnen, <strong>wenn es richtig konfiguriert ist</strong> (funktioniert leider nicht richtig mit der Gmail app!). Du kannst auch den untenstehenden Text in dein E-Mailprogramm kopieren:</p>
+          <p><a href="#" id="ready-text-start" class="btn btn-primary btn-sm">Senden vorbereiten</a></p>
+        </div>
+      </div>
+
+      <div class="row" id="countdown-text" style="margin-bottom: 3em;">
+        <div class="col-xs-12">
+          <p>
+            Das ist eine Vorschau der E-Mail, die du verschicken musst. Die schwarzen Boxen (■■■■■■■) zeigen die Positionen an, an denen der geheime Code eingefügt werden muss. Dieser geheime Code wurde noch nicht veröffentlicht.
+          </p>
+          <p><button id="not-ready" class="btn btn-primary btn-sm" disabled>Schick die Mail noch nicht ab!</button></p>
+          <p>
+            Sobald der geheime Code veröffentlicht wurde, wird er automatisch geladen und an die richtigen Stellen eingefügt. Du musst diese Seite dafür nicht neu laden. Du findest alle Informationen die du brauchst, inklusive des geheimen Codes auch auf dem <a href="https://twitter.com/eurofurence"
+            >Eurofurence Twitter Account</a
+          >.
+          </p>
+          <p style="text-align: center; margin-top: 2em;">Der geheime Code wird veröffentlicht<br /><h2 style="text-align: center;" id="secret-timer"></h2><h4 style="text-align: center;" id="secret-timer-berlin-tz"></h3></p>
+          <p id="timeError" style="text-align: center; color: red; font-size: 1.5em; display: none;">Code-Server nicht erreichbar!</p>
+        </div>
+      </div>
+
+      <div class="form-group" id="ready-to" style="display: block;">
+        <label class="control-label col-xs-2" for="email_to">An:</label>
+        <div class="col-xs-10">
+          <input class="form-control" id="email_to" name="email_to" value="" readonly />
+          <button id="ready-text-copyTo" class="btn btn-default input-append" type="button">Kopieren</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-xs-2" for="email_subject"
+          >Betreff:</label
+        >
+        <div class="col-xs-10">
+          <input
+            class="form-control"
+            id="email_subject"
+            name="email_subject"
+            value=""
+            readonly
+          />
+          <button id="ready-text-copySubject" class="btn btn-default input-append" type="button">Kopieren</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <textarea
+            class="form-control"
+            rows="40"
+            id="email"
+            name="email"
+            readonly
+          ></textarea>
+          <button id="ready-text-copyBody" class="btn btn-default input-append" type="button">Kopieren</button>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand">©2022 Eurofurence e.V.</span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
