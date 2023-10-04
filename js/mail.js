@@ -48,7 +48,9 @@ function render(config, template) {
 
 function loadTime(config, template) {
   const secret = localStorage.getItem("setting_code");
+  const keyword = localStorage.getItem("setting_keyword");
   config.keywords.secret = secret;
+  config.keywords.keyword = keyword;
   render(config, template);
   $("#countdown-text").remove();
   $("#ready-text").css("display", "block");
